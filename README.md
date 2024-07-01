@@ -13,7 +13,13 @@ app.get("/api/books", async (req: Request, res: Response) => {
 
 Sample Response 
 ```
-![image](https://github.com/SherahIsrael/eql-test/assets/125824475/79df326b-ce53-4a8b-8d0a-8c49965cb889)
+ {
+        "id": 1,
+        "title": "Me Before You",
+        "author": "Joho Moyes",
+        "pages": "369"
+    }
+
 
 ```
 
