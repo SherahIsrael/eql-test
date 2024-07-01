@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Create a new book to add to the library</h1>
+        <form action="/books" method="POST">
+            
+            <br><br>
+            <label for="Title">Title: 
+                <input type="text" name="title" required />
+            </label>
+            <br><br>
+            <label for="Author">Author:
+                <input type="text" name="author" required/>
+            </label>
+            <br><br>
+            <label for="Pages">Pages: 
+                <input type="number" name="pages" required/>
+            </label>
+            <br><br>
+            <button type="submit" name="Submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
