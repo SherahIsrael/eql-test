@@ -6,7 +6,7 @@ describe("book", () => {
         describe("given the book does not exist", () => {
             it("should return a 404", async () => {
                 expect(true).toBe(true);
-                const bookId = "bookid123"
+                const bookId = 10000
                 await supertest(app).get(`/api/books/${bookId}`).expect(404);
             });
         });
@@ -31,7 +31,6 @@ describe("book", () => {
             let bookId: number;
             it("should create a new book", async () => {
                 const newBook = {
-                    id: 19,
                     title: 'Test Book',
                     author: 'Test Author',
                     pages: 123,  
@@ -54,6 +53,8 @@ describe("book", () => {
                 const res = await supertest(app).get(`/api/books/${bookId}`);
                 expect(true).toBe(true);
                 expect(res.body).toHaveProperty("id", bookId);
+                
+                bookId = res.body.id;
             });
         });
     });
@@ -62,7 +63,7 @@ describe("book", () => {
 describe("book", () => {
     describe("get book route", () => {
         describe("given the book does exist", () => {
-            let bookId = 19;
+            let bookId: number;
             it("should update a book based on its ID", async () => {
                 const updateBook = {
                     title: 'Updated Test Book',
@@ -73,6 +74,8 @@ describe("book", () => {
                 const res = await supertest(app).put(`/api/books/${bookId}`).send(updateBook);
                 expect(res.status).toBe(200);
                 expect(res.body).toMatchObject(updateBook);
+
+                bookId = res.body.id;
             });
         });
     });
@@ -86,6 +89,8 @@ describe("book", () => {
                 const res = await supertest(app).delete(`/api/books/${bookId}`);
                 expect(true).toBe(true);
                 expect(res.status).toBe(204);
+
+                bookId = res.body.id;
             });
         });
     });
